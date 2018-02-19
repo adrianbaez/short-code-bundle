@@ -9,15 +9,15 @@ interface DecoderInterface
 {
     /**
      * Indica si soporta el código
-     * @param string $code
+     * @param string $encoded
      * @return bool
      */
-    public function supports(string $code) : bool;
+    public function supports(string $encoded) : bool;
 
     /**
      * Decodifica un código
-     * @param string $code
+     * @param string $encoded
      * @return string
      */
-    public function decode(string $code) : string;
+    public function decode(string $encoded) : string;
 }
