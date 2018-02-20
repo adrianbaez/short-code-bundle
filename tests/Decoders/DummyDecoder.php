@@ -2,12 +2,12 @@
 
 namespace AdrianBaez\Bundle\ShortCodeBundle\Tests\Decoders;
 
-use AdrianBaez\Bundle\ShortCodeBundle\Interfaces\DecoderInterface;
+use AdrianBaez\Bundle\ShortCodeBundle\Decoder\RegEx;
 
 /**
  * Reemplaza las coincidencias de DummyCode por DummyCodeDecoded
  */
-class DummyDecoder implements DecoderInterface
+class DummyDecoder extends RegEx
 {
     /**
      * Expresión regular de coincidencia
@@ -16,18 +16,12 @@ class DummyDecoder implements DecoderInterface
     const REGEX = '/DummyCode/';
 
     /**
-     * @inheritDoc
+     * Devuelve una lista
+     * @param array $match
+     * @return string
      */
-    public function supports(string $encoded): bool
+    public function replaceCallback(array $match) : string
     {
-        return preg_match(static::REGEX, $encoded) > 0;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function decode(string $encoded): string
-    {
-        return preg_replace(static::REGEX, 'DummyCodeDecoded', $encoded);
+        return 'DummyCodeDecoded';
     }
 }
