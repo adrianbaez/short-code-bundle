@@ -50,7 +50,7 @@ class BracketDecoder extends RegEx
      */
     public function replaceCallback(array $match): string
     {
-        if(!isset($this->callbacks[$match[1]])){
+        if (!isset($this->callbacks[$match[1]])) {
             return $match[0];
         }
         return $this->callbacks[$match[1]]($this->getAttributes($match[2]));
@@ -61,11 +61,12 @@ class BracketDecoder extends RegEx
      * @param  string $string
      * @return array
      */
-    public function getAttributes(string $string){
+    public function getAttributes(string $string)
+    {
         $re = '/(\S+)=["\']?((?:.(?!["\']?\s+(?:\S+)=|[>"\']))+.)["\']?/';
         $out = [];
-        if(preg_match_all($re, $string, $matches, PREG_SET_ORDER, 0)){
-            foreach($matches as $match){
+        if (preg_match_all($re, $string, $matches, PREG_SET_ORDER, 0)) {
+            foreach ($matches as $match) {
                 $out[$match[1]] = $match[2];
             }
         }
