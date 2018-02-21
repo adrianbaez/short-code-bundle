@@ -15,15 +15,15 @@ class BracketDecoderTest extends TestCase
         $bracketDecoder = new BracketDecoder;
         $this->assertEquals(0, count($bracketDecoder->getAvailableTags()));
 
-        $bracketDecoder->addTag('my-tag', function ($match) {
+        $bracketDecoder->addTag('my-tag', function ($attributes) {
         });
         $this->assertEquals(1, count($bracketDecoder->getAvailableTags()));
         // Si se añadde la misma se sobreescribe
-        $bracketDecoder->addTag('my-tag', function ($match) {
+        $bracketDecoder->addTag('my-tag', function ($attributes) {
         });
         $this->assertEquals(1, count($bracketDecoder->getAvailableTags()));
 
-        $bracketDecoder->addTag('my-other-tag', function ($match) {
+        $bracketDecoder->addTag('my-other-tag', function ($attributes) {
         });
         $this->assertEquals(2, count($bracketDecoder->getAvailableTags()));
     }
@@ -37,11 +37,11 @@ class BracketDecoderTest extends TestCase
         $this->assertEquals(0, count($bracketDecoder->getAvailableTags()));
         $this->assertEquals([], $bracketDecoder->getAvailableTags());
 
-        $bracketDecoder->addTag('my-tag', function ($match) {
+        $bracketDecoder->addTag('my-tag', function ($attributes) {
         });
         $this->assertEquals(['my-tag'], $bracketDecoder->getAvailableTags());
 
-        $bracketDecoder->addTag('my-other-tag', function ($match) {
+        $bracketDecoder->addTag('my-other-tag', function ($attributes) {
         });
         $this->assertEquals(['my-tag', 'my-other-tag'], $bracketDecoder->getAvailableTags());
     }
@@ -54,11 +54,11 @@ class BracketDecoderTest extends TestCase
         $bracketDecoder = new BracketDecoder;
         $this->assertEquals('/\[((?:))(.*)]/U', $bracketDecoder->getRegEx());
 
-        $bracketDecoder->addTag('my-tag', function ($match) {
+        $bracketDecoder->addTag('my-tag', function ($attributes) {
         });
         $this->assertEquals('/\[((?:my-tag))(.*)]/U', $bracketDecoder->getRegEx());
 
-        $bracketDecoder->addTag('my-other-tag', function ($match) {
+        $bracketDecoder->addTag('my-other-tag', function ($attributes) {
         });
         $this->assertEquals('/\[((?:my-tag|my-other-tag))(.*)]/U', $bracketDecoder->getRegEx());
     }
@@ -71,14 +71,14 @@ class BracketDecoderTest extends TestCase
         $bracketDecoder = new BracketDecoder;
         $this->assertFalse($bracketDecoder->supports('Text with [my-tag] inside.'), 'Si no hay tags no tiene que soportar nada');
 
-        $bracketDecoder->addTag('my-tag', function ($match) {
+        $bracketDecoder->addTag('my-tag', function ($attributes) {
         });
         $this->assertTrue($bracketDecoder->supports('Text with [my-tag] inside.'), 'Tiene que soportar texto con [my-tag]');
         $this->assertTrue($bracketDecoder->supports('Text with [my-tag attr=value] inside.'), 'Tiene que soportar texto con [my-tag attr=value]');
         $this->assertFalse($bracketDecoder->supports('Text with [my-other-tag] inside.'), 'NO tiene que soportar texto con [my-other-tag]');
         $this->assertFalse($bracketDecoder->supports('Text with [my-other-tag attr=value] inside.'), 'No tiene que soportar texto con [my-other-tag attr=value]');
 
-        $bracketDecoder->addTag('my-other-tag', function ($match) {
+        $bracketDecoder->addTag('my-other-tag', function ($attributes) {
         });
         $this->assertTrue($bracketDecoder->supports('Text with [my-tag] inside.'), 'Tiene que seguir soportando texto con [my-tag]');
         $this->assertTrue($bracketDecoder->supports('Text with [my-tag attr=value] inside.'), 'Tiene que seguir soportando texto con [my-tag attr=value]');
