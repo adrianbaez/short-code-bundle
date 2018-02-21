@@ -2,12 +2,12 @@
 
 namespace AdrianBaez\Bundle\ShortCodeBundle\Tests;
 
-use AdrianBaez\Bundle\ShortCodeBundle\DecoderCollection;
+use AdrianBaez\ShortCode\DecoderCollection;
 
 class ShortCodeBundleTest extends TestCase
 {
     /**
-     * Comprueba que se añaden todos los DecoderInterface
+     * Comprueba que se añaden todos los DecoderInterface y los BracketDecoderTagInterface
      */
     public function testServices()
     {

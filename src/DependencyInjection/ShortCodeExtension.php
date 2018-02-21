@@ -2,8 +2,8 @@
 
 namespace AdrianBaez\Bundle\ShortCodeBundle\DependencyInjection;
 
-use AdrianBaez\Bundle\ShortCodeBundle\Interfaces\BracketDecoderTagInterface;
-use AdrianBaez\Bundle\ShortCodeBundle\Interfaces\DecoderInterface;
+use AdrianBaez\ShortCode\Interfaces\BracketDecoderTagInterface;
+use AdrianBaez\ShortCode\Interfaces\DecoderInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;

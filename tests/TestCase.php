@@ -2,8 +2,8 @@
 
 namespace AdrianBaez\Bundle\ShortCodeBundle\Tests;
 
-use AdrianBaez\Bundle\ShortCodeBundle\DecoderCollection;
-use AdrianBaez\Bundle\ShortCodeBundle\Interfaces\DecoderCollectionInterface;
+use AdrianBaez\ShortCode\DecoderCollection;
+use AdrianBaez\ShortCode\Interfaces\DecoderCollectionInterface;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\KernelInterface;

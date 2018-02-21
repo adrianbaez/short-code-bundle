@@ -2,8 +2,8 @@
 
 namespace AdrianBaez\Bundle\ShortCodeBundle\DependencyInjection\Compiler;
 
+use AdrianBaez\ShortCode\DecoderCollection;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use AdrianBaez\Bundle\ShortCodeBundle\DecoderCollection;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Reference;
 

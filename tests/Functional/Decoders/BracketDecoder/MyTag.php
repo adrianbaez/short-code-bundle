@@ -2,7 +2,7 @@
 
 namespace AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Decoders\BracketDecoder;
 
-use AdrianBaez\Bundle\ShortCodeBundle\Interfaces\BracketDecoderTagInterface;
+use AdrianBaez\ShortCode\Interfaces\BracketDecoderTagInterface;
 
 class MyTag implements BracketDecoderTagInterface
 {

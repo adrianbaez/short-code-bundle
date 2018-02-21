@@ -2,7 +2,7 @@
 
 namespace AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Decoders;
 
-use AdrianBaez\Bundle\ShortCodeBundle\Decoder\RegEx;
+use AdrianBaez\ShortCode\Decoder\RegEx;
 
 /**
  * Reemplaza las coincidencias del código por una lista html
