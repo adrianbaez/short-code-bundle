@@ -3,8 +3,8 @@
 namespace AdrianBaez\Bundle\ShortCodeBundle\Tests;
 
 use AdrianBaez\Bundle\ShortCodeBundle\DecoderCollection;
-use AdrianBaez\Bundle\ShortCodeBundle\Tests\Decoders\DummyDecoder;
-use AdrianBaez\Bundle\ShortCodeBundle\Tests\Decoders\HtmlListDecoder;
+use AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Decoders\DummyDecoder;
+use AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Decoders\HtmlListDecoder;
 
 class DecoderCollectionTest extends TestCase
 {

@@ -3,3 +3,9 @@ services:
         autowire: true
         autoconfigure: true
         public: false
+
+    AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Decoders\:
+        resource: '../Decoders/*'
+
+    AdrianBaez\Bundle\ShortCodeBundle\DecoderCollection:
+        public: true

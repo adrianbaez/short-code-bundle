@@ -1,6 +1,6 @@
 <?php
 
-namespace AdrianBaez\Bundle\ShortCodeBundle\Tests\Decoders;
+namespace AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Decoders;
 
 use AdrianBaez\Bundle\ShortCodeBundle\Decoder\RegEx;
 
