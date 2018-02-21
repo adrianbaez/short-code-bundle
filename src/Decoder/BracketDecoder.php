@@ -2,6 +2,8 @@
 
 namespace AdrianBaez\Bundle\ShortCodeBundle\Decoder;
 
+use AdrianBaez\Bundle\ShortCodeBundle\Interfaces\BracketDecoderTagInterface;
+
 /**
  * BracketDecoder
  */
@@ -31,10 +33,22 @@ class BracketDecoder extends RegEx
     /**
      * @param string   $tag
      * @param callable $callback
+     * @return static
      */
     public function addTag(string $tag, callable $callback)
     {
         $this->callbacks[$tag] = $callback;
+        return $this;
+    }
+
+    /**
+     * @param BracketDecoderTagInterface $tagDecoder
+     * @return static
+     */
+    public function addTagDecoder(BracketDecoderTagInterface $tagDecoder)
+    {
+        $this->addTag($tagDecoder->getTag(), [$tagDecoder, 'decode']);
+        return $this;
     }
 
     /**

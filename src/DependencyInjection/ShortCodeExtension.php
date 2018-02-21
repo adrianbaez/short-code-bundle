@@ -2,6 +2,7 @@
 
 namespace AdrianBaez\Bundle\ShortCodeBundle\DependencyInjection;
 
+use AdrianBaez\Bundle\ShortCodeBundle\Interfaces\BracketDecoderTagInterface;
 use AdrianBaez\Bundle\ShortCodeBundle\Interfaces\DecoderInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -17,6 +18,9 @@ class ShortCodeExtension extends Extension
     {
         $container->registerForAutoconfiguration(DecoderInterface::class)
             ->addTag('short_code.decoder')
+        ;
+        $container->registerForAutoconfiguration(BracketDecoderTagInterface::class)
+            ->addTag('short_code.bracket_decoder_tag')
         ;
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yaml');
