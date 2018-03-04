@@ -19,6 +19,7 @@ class Kernel extends BaseKernel
     {
         return [
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            new \Symfony\Bundle\TwigBundle\TwigBundle(),
             new \AdrianBaez\Bundle\ShortCodeBundle\ShortCodeBundle(),
             new \AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Bundle\Bundle(),
         ];
@@ -50,7 +51,7 @@ class Kernel extends BaseKernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        foreach(['framework', 'services'] as $config){
+        foreach(['framework', 'twig', 'services'] as $config){
             $loader->load(__DIR__.sprintf('/config/%s.yaml', $config));
         }
     }

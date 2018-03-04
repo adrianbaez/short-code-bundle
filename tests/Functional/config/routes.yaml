@@ -1,0 +1,9 @@
+inject_argument:
+    path:     /inject-argument
+    defaults:  { _controller: AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Bundle\Controller\ShortCodeController::injectArgument }
+    methods:  [GET]
+
+filter:
+    path:     /filter
+    defaults:  { _controller: AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Bundle\Controller\ShortCodeController::filter }
+    methods:  [GET]

@@ -7,5 +7,9 @@ services:
     AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Decoders\:
         resource: '../Decoders/*'
 
+    AdrianBaez\Bundle\ShortCodeBundle\Tests\Functional\Bundle\Controller\:
+        resource: '../Bundle/Controller'
+        tags: ['controller.service_arguments']
+
     AdrianBaez\ShortCode\DecoderCollection:
         public: true

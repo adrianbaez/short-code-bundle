@@ -1,3 +1,5 @@
 framework:
     secret: test
+    router:
+        resource: '%kernel.root_dir%/config/routes.yaml'
     test: ~

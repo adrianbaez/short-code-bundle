@@ -7,3 +7,9 @@ services:
     AdrianBaez\ShortCode\DecoderCollection: ~
 
     AdrianBaez\ShortCode\Decoder\BracketDecoder: ~
+
+    AdrianBaez\Bundle\ShortCodeBundle\Twig\ShortCodeExtension: ~
+
+    AdrianBaez\Bundle\ShortCodeBundle\Twig\Runtime:
+        tags:
+            - { name: twig.runtime }
